@@ -1,0 +1,59 @@
+{extend name="common/other_body"}
+{block name="content_show"}
+<nav class="breadcrumb">
+    <i class="Hui-iconfont">&#xe67f;</i> 首页
+    <span class="c-gray en">&gt;</span> 品牌管理
+    <span class="c-gray en">&gt;</span> 添加品牌
+    <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+        <i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+<article class="page-container">
+    <form action="" method="post" class="form form-horizontal" enctype="multipart/form-data" id="form-admin-role-add">
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>品牌名称：</label>
+            <div class="formControls col-xs-9 col-sm-10">
+                <input type="text" class="input-text" value="" placeholder="" name="b_name">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>品牌首字母：</label>
+            <div class="formControls col-xs-9 col-sm-10">
+                <input type="text" class="input-text" value="" placeholder="A" name="b_initial">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-2">品牌LOGO：</label>
+            <div class="formControls col-xs-5 col-sm-5">
+                <input type="file" name="file" id="file_upload" />
+                <input type="hidden" name="b_pic" id="file_upload_image" value="">
+                <img src="" id="upload_org_code_img" style="display: none;"/>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-2">品牌排序：</label>
+            <div class="formControls col-xs-5 col-sm-5">
+                <input type="text" class="input-text" value="255" placeholder="0~255" name="b_sort">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-2">品牌描述：</label>
+            <div class="formControls col-xs-9 col-sm-10">
+                <textarea name="b_desc" cols="" rows="" class="textarea" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onkeyup="$.Huitextarealength(this,200)"></textarea>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
+            </div>
+        </div>
+    </form>
+</article>
+<script type="text/javascript" src="__ASTATIC__uploadify/jquery.uploadify.js"></script>
+<script type="text/javascript" src="__ASTATIC__common/js/image.js"></script>
+<script>
+    var SCOPE = {
+        'uploadify_swf': '__ASTATIC__uploadify/uploadify.swf',
+        'image_upload': '{:url("api/image/upload")}'
+    };
+</script>
+{/block}
